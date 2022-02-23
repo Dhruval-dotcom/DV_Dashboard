@@ -1,0 +1,59 @@
+<html>
+    <head> 
+        <style> 
+            *{
+                background-color: rgb(240, 235, 235);
+            }
+            pre{
+                border: 2px solid rgb(42, 105, 187);
+                border-left: 5px solid red;
+                font-family: Arial, Helvetica, sans-serif;
+                font-family: sans-serif;
+                width: 79%;
+                background-color: whitesmoke;
+                overflow-x: scroll;
+                border-radius: 3px;
+            }
+     </style>
+     </head>
+ <body>     
+       <h2>GeoChart source code </h2>
+    <pre>
+    &lt;html&gt;
+    &lt;head&gt;
+      &lt;script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"&gt;&lt;/script&gt;
+      &lt;script type="text/javascript"&gt;
+        google.charts.load('current', {
+          'packages':['geochart'],
+        });
+        google.charts.setOnLoadCallback(drawRegionsMap);
+  
+        function drawRegionsMap() {
+          var data = google.visualization.arrayToDataTable([
+            ['Country', 'Popularity'],
+            ['Germany', 200],
+            ['United States', 300],
+            ['Brazil', 400],
+            ['Canada', 500],
+            ['France', 600],
+            ['RU', 700]
+          ]);
+  
+          var options = {};
+  
+          var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+  
+          chart.draw(data, options);
+        }
+      &lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;div id="regions_div" style="width: 900px; height: 500px;"&gt;&lt;/div&gt;
+    &lt;/body&gt;
+  &lt;/html&gt;
+  
+  
+</pre>
+
+</body>
+</html>

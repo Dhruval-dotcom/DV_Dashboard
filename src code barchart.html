@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <style>
+            *{
+                background-color: rgb(240, 235, 235);
+            }
+            pre{
+                border: 2px solid rgb(42, 105, 187);
+                border-left: 5px solid red;
+                font-family: Arial, Helvetica, sans-serif;
+                font-family: sans-serif;
+                width: 79%;
+                background-color: whitesmoke;
+                overflow-x: scroll;
+                border-radius: 3px;
+            }
+     </style>
+    </head>
+ <body>
+     
+       <h2>barChart source code</h2>
+    <pre>
+        &lt;html&gt;
+        &lt;head&gt;
+            &lt;link rel="stylesheet" href=""&gt;
+            &lt;title&gt;D3&lt;/title&gt;
+            &lt;script&gt;
+                var dataset =[80,100,56,120,90,66,72,39];
+    
+            var svgwidth=500;
+            var svgheight=300;
+            var barpadding=5;
+            var barwidth=(svgwidth/dataset.length);
+    
+            var svg=d3.select('svg')
+                .attr("width",svgwidth)
+                .attr("height",svgheight);
+    
+            var yScale = d3.scaleLinear()
+                .domain([0,d3.max(dataset)])
+                .range([0,svgheight]);
+    
+            var barChart=svg.selectAll("rect")
+               .data(dataset)
+               .enter()
+               .append("rect")
+               .attr("y",function(d){
+                  return svgheight-d;
+               })
+              .attr("height",function(d){
+                    return yScale(d);
+               })
+               .attr("width",barwidth-barpadding)
+               .attr("transform",function(d,i){
+                 var translate =[barwidth*i,0];
+                    return"translate("+ translate +")";
+                });
+    
+            &lt;/script&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;h1&gt;Bar chart using d3.js&lt;/h1&gt;
+            &lt;svg class="bar-chart"&gt;&lt;/svg&gt;
+            &lt;script src="https://d3js.org/d3.v4.min.js"&gt;&lt;/script&gt;
+        &lt;/body&gt;
+    &lt;/html&gt;
+</pre>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <style>
+            *{
+                background-color: rgb(240, 235, 235);
+            }
+            pre{
+                border: 2px solid rgb(42, 105, 187);
+                border-left: 5px solid red;
+                font-family: Arial, Helvetica, sans-serif;
+                font-family: sans-serif;
+                width: 79%;
+                background-color: whitesmoke;
+                overflow-x: scroll;
+                border-radius: 3px;
+            }
+        </style>
+    </head>
+    <body>
+      <h2>ScatterChart source code</h2>
+    <pre>
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"&gt;&lt;/script&gt;
+    &lt;script type="text/javascript"&gt;
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Age', 'Weight'],
+          [ 8,      12],
+          [ 4,      5.5],
+          [ 11,     14],
+          [ 4,      5],
+          [ 3,      3.5],
+          [ 6.5,    7]
+        ]);
+
+        var options = {
+          title: 'Age vs. Weight comparison',
+          hAxis: {title: 'Age', minValue: 0, maxValue: 15},
+          vAxis: {title: 'Weight', minValue: 0, maxValue: 15},
+          legend: 'none'
+        };
+
+        var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+
+        chart.draw(data, options);
+      }
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="chart_div" style="width: 900px; height: 500px;"&gt;&lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+
+
+</pre>
+</body>
+</html>
