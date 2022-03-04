@@ -9,10 +9,11 @@
                 border-left: 5px solid red;
                 font-family: Arial, Helvetica, sans-serif;
                 font-family: sans-serif;
-                width: 79%;
+                width: 65%;
                 background-color: whitesmoke;
                 overflow-x: scroll;
                 border-radius: 3px;
+                 
             }
      </style>
     </head>
@@ -25,37 +26,39 @@
             &lt;link rel="stylesheet" href=""&gt;
             &lt;title&gt;D3&lt;/title&gt;
             &lt;script&gt;
-                var dataset =[80,100,56,120,90,66,72,39];
-    
-            var svgwidth=500;
-            var svgheight=300;
-            var barpadding=5;
-            var barwidth=(svgwidth/dataset.length);
-    
-            var svg=d3.select('svg')
-                .attr("width",svgwidth)
-                .attr("height",svgheight);
-    
-            var yScale = d3.scaleLinear()
-                .domain([0,d3.max(dataset)])
-                .range([0,svgheight]);
-    
-            var barChart=svg.selectAll("rect")
-               .data(dataset)
-               .enter()
-               .append("rect")
-               .attr("y",function(d){
-                  return svgheight-d;
-               })
-              .attr("height",function(d){
-                    return yScale(d);
-               })
-               .attr("width",barwidth-barpadding)
-               .attr("transform",function(d,i){
-                 var translate =[barwidth*i,0];
-                    return"translate("+ translate +")";
-                });
-    
+            google.charts.load("current", {packages:['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                ["Language", "% Users", { role: "style" } ],
+                ["Python", 13.58, "color: blue"],
+                ["C", 12.44, "color: cyan"],
+                ["Java", 10.66, "color: magenta"],
+                ["C++", 8.29, "color: red"],
+                ["C#", 5.68, "color: yellow"],
+                ["Basic Visual", 4.74, "color: aqua"],
+                ["Javascript", 2.09, "color: yellow"],
+                ["PHP", 1.4, "color: aqua"]
+                ]);
+
+                var view = new google.visualization.DataView(data);
+                view.setColumns([0, 1,
+                                { calc: "stringify",
+                                    sourceColumn: 1,
+                                    type: "string",
+                                    role: "annotation" },
+                                2]);
+
+                var options = {
+                title: "% users of different programming languages",
+                width: 600,
+                height: 400,
+                bar: {groupWidth: "95%"},
+                legend: { position: "none" },
+                };
+                var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+                chart.draw(view, options);
+            }
             &lt;/script&gt;
         &lt;/head&gt;
         &lt;body&gt;
@@ -65,6 +68,6 @@
         &lt;/body&gt;
     &lt;/html&gt;
 </pre>
-
+<br><br><a style="font-size: larger;" href="index.html">Go to home page &gt;&gt;</a>
 </body>
 </html>

@@ -24,27 +24,27 @@
             &lt;head&gt;
               &lt;script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"&gt;&lt;/script&gt;
               &lt;script type="text/javascript"&gt;
-                google.charts.load('current', {'packages':['corechart']});
-                google.charts.setOnLoadCallback(drawChart);
-          
-                function drawChart() {
-                  var data = google.visualization.arrayToDataTable([
-                    ['Year', 'Sales', 'Expenses'],
-                    ['2013',  1000,      400],
-                    ['2014',  1170,      460],
-                    ['2015',  660,       1120],
-                    ['2016',  1030,      540]
-                  ]);
-          
-                  var options = {
-                    title: 'Company Performance',
-                    hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
-                    vAxis: {minValue: 0}
-                  };
-          
-                  var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-                  chart.draw(data, options);
-                }
+              google.charts.load('current', {'packages':['corechart']});
+              google.charts.setOnLoadCallback(drawChart);
+        
+              function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                  ['Year', 'Java', 'Javascript','python','php'],
+                  ['2010',  29.66,    20.45 ,9.96, 17.38 ],
+                  ['2015',  26.73,    22.22,14.5,10.48],
+                  ['2019',  22.39,     23.18,24.27,7.19]
+                   
+                ]);
+        
+                var options = {
+                  title: '%Use of programming language over the years  ',
+                  hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+                  vAxis: {minValue: 0}
+                };
+        
+                var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+                chart.draw(data, options);
+              }
               &lt;/script&gt;
             &lt;/head&gt;
             &lt;body&gt;
@@ -56,6 +56,6 @@
 
 
 </pre>
-
+<br><br><a href="index.html">Go to home page &gt;&gt;</a>
 </body>
 </html>

@@ -24,27 +24,27 @@
         &lt;head&gt;
           &lt;script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"&gt;&lt;/script&gt;
           &lt;script type="text/javascript"&gt;
-            google.charts.load('current', {'packages':['corechart']});
-            google.charts.setOnLoadCallback(drawChart);
-      
-        function drawChart() {
-          var data = google.visualization.arrayToDataTable([
-            ['Mon', 20, 28, 38, 45],
-            ['Tue', 31, 38, 55, 66],
-            ['Wed', 50, 55, 77, 80],
-            ['Thu', 77, 77, 66, 50],
-            ['Fri', 68, 66, 22, 15]
-            // Treat first row as data as well.
-          ], true);
-      
-          var options = {
-            legend:'none'
-          };
-      
-          var chart = new google.visualization.CandlestickChart(document.getElementById('chart_div'));
-      
-          chart.draw(data, options);
-        }
+          google.charts.load('current', {'packages':['corechart']});
+          google.charts.setOnLoadCallback(drawChart);
+    
+          function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ['Java', 20.45, 22.22, 23.18, 21],
+              ['Javascript', 29.66, 26.73, 22.39, 20],
+              ['C++', 11.46, 8.40, 6.62, 6.1],
+              ['Python', 9.96, 14.50, 24.27, 23.2],
+              ['PHP', 17.38, 10.68, 7.19, 6.98] 
+              // Treat first row as data as well.
+            ], true);
+    
+            var options = {
+              legend:'none'
+            };
+    
+            var chart = new google.visualization.CandlestickChart(document.getElementById('chart_div'));
+    
+            chart.draw(data, options);
+          }
           &lt;/script&gt;
         &lt;/head&gt;
         &lt;body&gt;
@@ -60,6 +60,6 @@
 
 
 </pre>
-
+<br><br><a href="index.html">Go to home page &gt;&gt;</a>
 </body>
 </html>

@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load("current", {packages:['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ["Language", "% Users", { role: "style" } ],
+        ["Python", 13.58, "color: blue"],
+        ["C", 12.44, "color: cyan"],
+        ["Java", 10.66, "color: magenta"],
+        ["C++", 8.29, "color: red"],
+        ["C#", 5.68, "color: yellow"],
+        ["Basic Visual", 4.74, "color: aqua"],
+        ["Javascript", 2.09, "color: yellow"],
+        ["PHP", 1.4, "color: aqua"]
+      ]);
+
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var options = {
+        title: "% users of different programming languages",
+        width: 600,
+        height: 400,
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
+      };
+      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+      chart.draw(view, options);
+  }
+  </script>
+   
+  </head>
+  <body>
+    <h2>Column Chart</h2>
+    <div id="columnchart_values" style="width: 900px; height: 300px;"></div>
+    <br><br><br><br><br><br><a href="index.html">Go to home page &gt;&gt;</a>
+  </body>
+</html>
+

@@ -9,13 +9,16 @@
 
       function drawRegionsMap() {
         var data = google.visualization.arrayToDataTable([
-          ['Country', 'Popularity'],
-          ['Germany', 200],
-          ['United States', 300],
-          ['Brazil', 400],
-          ['Canada', 500],
-          ['France', 600],
-          ['RU', 700]
+          ['Country', 'Market (Earning) from Game'],
+          ['Germany', 46.1],
+          ['Japan', 75.6],
+          ['Korea', 33],
+          ['United Kingdom', 37.7],
+          ['France', 38.1],
+          ['Canada', 21],
+          ['Italy',36.5],
+          ['Spain',29.7],
+          ['India',38]
         ]);
 
         var options = {};
@@ -27,7 +30,10 @@
     </script>
   </head>
   <body>
+    <h2>Geo Chart</h2>
+    <h3>Market (Earning) from Game for Different Countries</h3>
     <div id="regions_div" style="width: 900px; height: 500px;"></div>
+    <br><br><a href="index.html">Go to home page &gt;&gt;</a>
   </body>
 </html>
 
